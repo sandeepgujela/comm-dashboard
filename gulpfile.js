@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'), // concatinating the resources both js and css
     uglify = require('gulp-uglify'),
     gutil = require('gulp-util'), // minifying the js files. triggered only in 'deploy' task below
-    clean = require('gulp-clean'), // removing files from a directory
+    del = require('del'),// removing files from a directory
     jshint = require('gulp-jshint'), // check the validity of js files
     stylish = require('jshint-stylish'), // to display the jshint messages in a human readable format with line number and file name
     templateCache = require('gulp-angular-templatecache'), // to cache angular.js templates
@@ -51,6 +51,9 @@ var options = new function() {
 
 };
 
+gulp.task('clean',function(){
+    return del(['dashboard/js/**/*','dashboard/css/**/*']); //'static/fonts/**/*','static/images/**/*'
+});
 
 gulp.task('jshint', function() {
     return gulp.src(options.JS_SRC.concat('!' + options.JS_SRC[0]) // excluding vendor libs from lint checking
@@ -92,7 +95,7 @@ gulp.task('js-prod', ['jshint', 'template-cache'], function() {
         .pipe( ngmin() )
         .pipe( uglify() )
         .pipe(concat(options.JS_DEST_NAME))
-        .pipe(rev())
+        // .pipe(rev())
         .pipe(gulp.dest(options.JS_DEST));
 });
 
@@ -135,7 +138,7 @@ gulp.task('css-prod', ['compile-sass'], function() {
         .pipe(concat(options.CSS_DEST_NAME))
         .pipe(autoprefixer({ cascade: false }))
         .pipe( minifycss() )
-        .pipe(rev())
+        // .pipe(rev())
         .pipe(gulp.dest(options.CSS_DEST))
 })
 gulp.task('uncache',function(){
@@ -161,6 +164,6 @@ gulp.task('int', ['js-int', 'fonts', 'imgs', 'css-staging','uncache'], function(
 gulp.task('staging', ['js-staging', 'fonts', 'imgs', 'css-staging'], function() {
 });
 
-gulp.task('prod', ['js-prod', 'fonts', 'imgs', 'css-prod','uncache'], function() {
+gulp.task('deploy', ['js-prod', 'fonts', 'imgs', 'css-prod','uncache'], function() {
 });
 
