@@ -9,13 +9,14 @@ angular.module('school-list',['event-list']).config(function($stateProvider){
 }).controller('SchoolListCtrl',function($scope,DashboardService,$state){
 	$scope.schoolListCtrl={
 		from:0,
-		offset:10
+		offset:10,
+		paginatedResponse:0
 	};
 	console.log("inside School List Ctrl");
 	$scope.getSchoolList=function(){
 		DashboardService.getSchoolList({fromDate:$scope.schoolListCtrl.fromDate,toDate:$scope.schoolListCtrl.toDate,from:0,offset:$scope.schoolListCtrl.offset}).then(function(response){
 			$scope.schoolListCtrl.schoolList=response.data.response;
-			$scope.paginatedResponse=response.data.response.length;
+			$scope.schoolListCtrl.paginatedResponse=response.data.response.length;
 			// console.log("response received ",$scope.schoolListCtrl.schoolList);
 		})
 		
@@ -30,7 +31,7 @@ angular.module('school-list',['event-list']).config(function($stateProvider){
 			response.data.response.forEach(function(school){
 				$scope.schoolListCtrl.schoolList.push(school);
 			})
-			$scope.paginatedResponse=response.data.response.length;
+			$scope.schoolListCtrl.paginatedResponse=response.data.response.length;
 		})
 		
 	}

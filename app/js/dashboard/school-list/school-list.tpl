@@ -51,6 +51,6 @@
       No Data Found for the given period.
   </div>
   <div class="col-sm-2 btn-top">
-     <a href="#" ng-click="loadMore()" ng-hide="paginatedResponse==0" class="btn btn-success btn-block">Load More</a>
+     <a href="#" ng-click="loadMore()" ng-hide="schoolListCtrl.paginatedResponse==0" class="btn btn-warning btn-block">Load More</a>
   </div>
 </section>
