@@ -24,7 +24,7 @@ angular.module('event-list', []).config(function($stateProvider) {
     };
     console.log("inside School List Ctrl", eventList);
     $scope.getSchoolList = function() {
-        DashboardService.getEventList({ fromDate: 123456, schoolName: "hello" }).then(function(response) {
+        DashboardService.getEventList({toDate: $scope.eventListCtrl.toDate, fromDate: $scope.eventListCtrl.fromDate, schoolCode:$stateParams.schoolCode }).then(function(response) {
             $scope.eventListCtrl.eventList = response.data.response;
             // console.log("response received ",$scope.eventListCtrl.eventList);
         })
