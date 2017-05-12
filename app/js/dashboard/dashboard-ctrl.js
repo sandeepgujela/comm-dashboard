@@ -1,6 +1,7 @@
 angular.module('dashboard', ['school-list','event-list']).config(function($stateProvider) {
     $stateProvider.state('dashboard', {
         url: '/dashboard',
+        abstract:'true',
         templateUrl: 'dashboard/dashboard.tpl',
         controller: 'SchoolCtrl'
     }

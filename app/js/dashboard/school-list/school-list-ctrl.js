@@ -1,6 +1,6 @@
 angular.module('school-list',['event-list']).config(function($stateProvider){
 	$stateProvider.state('school-list',{
-		url:'/school-list',
+		url:'',
 		parent:'dashboard',
 		templateUrl:'dashboard/school-list/school-list.tpl',
 		controller:'SchoolListCtrl'
