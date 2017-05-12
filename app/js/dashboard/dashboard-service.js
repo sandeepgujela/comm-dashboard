@@ -19,7 +19,7 @@ return{
 	},
 	getEventList:function(data){
 		var defer=$q.defer();
-		var url="stats/eventTypes";
+		var url="eventTypes";
 		BaseService.post(url,data).then(function(response){
 			if(response.status==200){
 				defer.resolve(response);

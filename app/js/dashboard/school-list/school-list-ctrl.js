@@ -17,8 +17,8 @@ angular.module('school-list',['event-list']).config(function($stateProvider){
 		
 	}
 	$scope.getEventList=function(schoolCode){
-		// $state.go('event-list',{'schoolCode':schoolCode,'fromDate':$scope.schoolListCtrl.fromDate,'toDate':$scope.schoolListCtrl.toDate});
-		$state.go('event-list',{'schoolCode':schoolCode,'fromDate':123564,'toDate':321651});
+		$state.go('event-list',{'schoolCode':schoolCode,'fromDate':$scope.schoolListCtrl.fromDate,'toDate':$scope.schoolListCtrl.toDate});
+		// $state.go('event-list',{'schoolCode':schoolCode,'fromDate':123564,'toDate':321651});
 
 	}
 })
