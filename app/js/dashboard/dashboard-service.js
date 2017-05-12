@@ -28,6 +28,19 @@ return{
 			}
 		});
 		return defer.promise;
+	},
+	getEventStats:function(data){
+	var defer=$q.defer();
+		var url="eventItemStats";
+		BaseService.post(url,data).then(function(response){
+			if(response.status==200){
+				defer.resolve(response);
+			}else{
+				defer.reject(response);// or write **defer.resolve(response);**
+			}
+		});
+		return defer.promise;	
 	}
+
 }
 }])
