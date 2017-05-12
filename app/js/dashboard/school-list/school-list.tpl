@@ -25,12 +25,12 @@
             <div class="col-sm-2 btn-top">
                 <a href="#" ng-click="getSchoolList()" ng-if="schoolListCtrl.fromDate && schoolListCtrl.toDate " class="btn btn-success btn-block">Submit</a>
             </div>
-            <div class="col-sm-3" >
-                <input type="text" class="form-control" placeholder="filter by School Name" ng-model="schoolNamefilter" />
-            </div>
         </div>
 
  <div class="table-responsive" ng-if="schoolListCtrl.schoolList">  
+            <div class="col-sm-3 padding0" >
+                <input type="text" class="form-control" placeholder="filter by School Name" ng-model="schoolNamefilter" />
+            </div>
   <table class="table table-bordered">
     <thead>
       <tr>
