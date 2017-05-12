@@ -46,7 +46,11 @@
     </tbody>
   </table>
   </div>
-  <div class="error-msg" ng-if=" schoolListCtrl.schoolList && schoolListCtrl.schoolList.length==0">
+
+  <div class="error-msg" ng-if="schoolListCtrl.schoolList && schoolListCtrl.schoolList.length==0">
       No Data Found for the given period.
+  </div>
+  <div class="col-sm-2 btn-top">
+     <a href="#" ng-click="loadMore()" ng-hide="paginatedResponse==0" class="btn btn-success btn-block">Load More</a>
   </div>
 </section>
