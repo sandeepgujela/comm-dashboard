@@ -10,7 +10,7 @@ angular.module('school-list',['event-list']).config(function($stateProvider){
 	$scope.schoolListCtrl={};
 	console.log("inside School List Ctrl");
 	$scope.getSchoolList=function(){
-		DashboardService.getSchoolList({fromDate:123456}).then(function(response){
+		DashboardService.getSchoolList({fromDate:$scope.schoolListCtrl.fromDate,toDate:$scope.schoolListCtrl.toDate}).then(function(response){
 			$scope.schoolListCtrl.schoolList=response.data.response;
 			console.log("response received ",$scope.schoolListCtrl.schoolList);
 		})

@@ -2,7 +2,7 @@ angular.module('app').factory('DashboardService',['Constants','$q','BaseService'
 return{
 	getSchoolList:function(data){
 		var defer=$q.defer();
-		var url="stats/schools";
+		var url="schools";
 		// BaseService.post(url,data).success(function(response){
 		// 	defer.resolve(response);
 		// }).error(function(response){
